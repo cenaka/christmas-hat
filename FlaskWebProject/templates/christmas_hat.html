@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Christmas hat</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="static/img/favicon.ico" type="image/x-icon">
+    <script src="static/js/jquery-2.1.4.js" type="application/javascript"></script>
+</head>
+<body>
+    <div id="people_names_list">
+            <h1> Найди свое имя и жамкни на кнопочку </h1>
+            <h3>(помни, что кнопочка одноразовая)</h3>
+            <img src="static/img/christmas-penguin.jpeg" alt="крутые пингвины в шапках" class="img-rounded">
+        <div class="buttons">
+            <div class="bg">
+		        <div id="buttons" class="centerer">
+                    {% for name in names %}
+                    <form method="post" action="/secret_santa">
+                        <div class="christmas_button_div">
+                            <br>
+                        <input type="submit" class="christmas_button" name="name" value={{name}}>
+                            </div>
+                    </form>
+
+                    {% endfor %}
+		    </div>
+	        </div>
+
+
+        </div>
+
+    </div>
+</body>
+</html>
