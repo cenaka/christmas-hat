@@ -11,4 +11,9 @@ if __name__ == '__main__':
         PORT = int(environ.get('SERVER_PORT', '5555'))
     except ValueError:
         PORT = 5555
+    import logging
+    from logging import FileHandler
+    file_handler = FileHandler('log.txt')
+    file_handler.setLevel(logging.DEBUG)
+    app.logger.addHandler(file_handler)
     app.run(HOST, PORT)
