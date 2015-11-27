@@ -2,7 +2,7 @@ import random
 import copy
 from itertools import permutations
 from flask import render_template, flash, redirect, request, jsonify, url_for
-from app import app
+from FlaskWebProject import app
 
 result = []
 
@@ -34,15 +34,15 @@ def secret_santa():
     santa = request.form["name"]
     person = result[santa]
     del result[santa]
-    return render_template("result.html", name = person)
+    return render_template("result.html", name=person)
 
 
 def chistmas_hat(people, not_to_people):
-    shaffle = copy.deepcopy(people)
-    random.shuffle(shaffle)
-    for shaffle_names in permutations(shaffle):
+    shuffle = copy.deepcopy(people)
+    random.shuffle(shuffle)
+    for shuffle_names in permutations(shuffle):
         flag = True
-        for j, name in enumerate(shaffle_names):
+        for j, name in enumerate(shuffle_names):
             if name == people[j]:
                 flag = False
                 break
@@ -50,7 +50,5 @@ def chistmas_hat(people, not_to_people):
                 flag = False
                 break
         if flag:
-            return list(shaffle_names)
+            return list(shuffle_names)
     return None
-
-
