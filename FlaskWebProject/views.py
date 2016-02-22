@@ -43,6 +43,7 @@ def secret_santa():
 def chistmas_hat(people, not_to_people):
     shuffle = copy.deepcopy(people)
     random.shuffle(shuffle)
+    
     for shuffle_names in permutations(shuffle):
         flag = True
         for j, name in enumerate(shuffle_names):
